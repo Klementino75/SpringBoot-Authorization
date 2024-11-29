@@ -1,10 +1,11 @@
 package ru.netology.springbootauthorization.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ru.netology.springbootauthorization.model.Authorities;
+import ru.netology.springbootauthorization.model.User;
 import ru.netology.springbootauthorization.service.AuthorizationService;
 
 import java.util.List;
@@ -18,8 +19,7 @@ public class AuthorizationController {
     }
 
     @GetMapping("/authorize")
-    public List<Authorities> getAuthorities(@RequestParam("user") String user,
-                                            @RequestParam("password") String password) {
-        return service.getAuthorities(user, password);
+    public List<Authorities> getAuthorities(@Valid User user) {
+        return service.getAuthorities(user);
     }
 }

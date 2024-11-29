@@ -10,13 +10,16 @@ import java.util.List;
 
 @Repository
 public class UserRepository implements UserRepositoryInterface {
+    private final List<Authorities> authorities = new ArrayList<>();
 
     @Override
     public List<Authorities> getUserAuthorities(String user, String password) {
-        List<Authorities> authorities = new ArrayList<>();
-
-        if (user.equals("Andrew") && password.equals("1234")) {
+        if (user.equals("Andrew") && password.equals("123")) {
             Collections.addAll(authorities, Authorities.READ, Authorities.WRITE, Authorities.DELETE);
+        } else if (user.equals("Andrew") && password.equals("1234")) {
+            Collections.addAll(authorities, Authorities.READ, Authorities.WRITE);
+        } else if (user.equals("Andrew") && password.equals("12345")) {
+            Collections.addAll(authorities, Authorities.READ);
         }
         return authorities;
     }

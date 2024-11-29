@@ -1,0 +1,14 @@
+###
+GET http://localhost:9999/authorize?user=Andrew&password=123
+
+###
+GET http://localhost:9999/authorize?user=Andrew&password=1234
+
+###
+GET http://localhost:9999/authorize?user=Andrew&password=12345
+
+###
+GET http://localhost:9999/authorize?user=Andrew&password=
+
+###
+GET http://localhost:9999/authorize?user=Andrew&password=234
