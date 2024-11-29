@@ -1,16 +1,9 @@
 package ru.netology.springbootauthorization.model;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
-
 import java.util.Objects;
 
 public class User {
-    @NotBlank
-    @Size(min = 2, max = 20)
     private final String name;
-    @NotBlank
-    @Size(min = 3, max = 8)
     private final String password;
 
     public User(String user, String password) {
