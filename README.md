@@ -9,3 +9,7 @@
 #### 7.4. Разворачивание Spring Boot приложений (NGINX, systemd, Firewall, Journalctl).
 
 Задание. Прокси на NGINX в ветке **_nginx_**.
+
+#### 7.5. Docker: основы работы.
+
+Задание. Dockerfile в ветке **_dockerfile_**.
