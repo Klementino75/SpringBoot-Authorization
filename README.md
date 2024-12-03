@@ -1,5 +1,5 @@
 ### Домашнее задание.
 
-#### 7.4. Разворачивание Spring Boot приложений (NGINX, systemd, Firewall, Journalctl).
+#### 7.5. Docker: основы работы.
 
-Задание. Прокси на NGINX.
+Задание. Dockerfile.
