@@ -2,4 +2,4 @@
 
 #### 7.6. Testcontainers, Kubernetes.
 
-Задание. Интеграционное тестирование.
+Задание. Testcontainers.
