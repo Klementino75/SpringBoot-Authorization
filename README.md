@@ -13,3 +13,7 @@
 #### 7.5. Docker: основы работы.
 
 Задание. Dockerfile в ветке **_dockerfile_**.
+
+#### 7.6. Testcontainers, Kubernetes.
+
+Задание. Testcontainers в ветке **_test_**.
