@@ -33,6 +33,6 @@ class SpringBootAuthorizationApplicationTests {
 //        System.out.println("expected = " + expected);
 //        System.out.println("result = " + result.getBody());
         Assertions.assertEquals(expected, result.getBody());
-        System.out.println("Test Ok!\n->" + expected + " = " + result);
+        System.out.println("Test Ok!\n->" + expected + " = " + result.getBody());
     }
 }
