@@ -13,26 +13,29 @@ import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-@DisplayName("Verification of authorization.")
+import java.nio.file.Paths;
+
+@DisplayName("Verification of authorization")
 @Testcontainers
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class SpringBootAuthorizationApplicationTests {
     @Autowired
     private TestRestTemplate restTemplate;
     @Container
-    private static final GenericContainer<?> genContainer = new GenericContainer<>("myapp:1.0")
+    private static final GenericContainer<?> genContainer = new GenericContainer<>(
+            new ImageFromDockerfile().withDockerfile(Paths.get("./Dockerfile")))
             .withExposedPorts(8080);
 
     @Test
-    @DisplayName("Login test.")
+    @DisplayName("Login test")
     void contextLoads() {
+        final String host = "http://localhost:";
         final String expected = "[\"READ\",\"WRITE\",\"DELETE\"]";
         final String authorizeUser = "/authorize?user=Andrew&password=1234";
         Integer appPort = genContainer.getMappedPort(8080);
-        ResponseEntity<String> result = restTemplate.getForEntity("http://localhost:" + appPort + authorizeUser, String.class);
-//        System.out.println("expected = " + expected);
-//        System.out.println("result = " + result.getBody());
+        ResponseEntity<String> result = restTemplate.getForEntity(host + appPort + authorizeUser, String.class);
+
         Assertions.assertEquals(expected, result.getBody());
-        System.out.println("Test Ok!\n->" + expected + " = " + result.getBody());
+        System.out.println("Test Ok!\n=> " + expected + " = " + result.getBody());
     }
 }
